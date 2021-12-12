@@ -1,0 +1,36 @@
+<div class="col-md-7 offset-md-2">
+  <h3>Registration</h3>
+  <form (ngSubmit) = "onSubmit()">
+
+
+
+      <div class="form-group">
+          <label>User Name</label>
+          <input type="text" class="form-control" id="username"
+          [(ngModel)] = "user.username" name="username">
+      </div>
+      <h1></h1>
+
+      <div class="form-group">
+          <label>email</label>
+          <input type="email" class="form-control" id="email"
+          [(ngModel)] = "user.email" name="email">
+      </div>
+      <h1></h1>
+
+      <div class="form-group">
+        <label>password</label>
+        <input type="password" class="form-control" id="password"
+        [(ngModel)] = "user.password" name="password">
+    </div>
+
+
+
+
+
+
+     <h1></h1>
+      <button class="btn btn-success" type="submit">submit</button>
+  </form>
+  </div>
+
