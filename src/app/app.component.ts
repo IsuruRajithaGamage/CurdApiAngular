@@ -9,11 +9,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'CurndApi';
 
-  constructor(private service:UserRegistrationService){}
+  constructor(public service:UserRegistrationService){}
 
-  log(){
-    this.service.isUserLoggedIn();
-  }
+
 
 }
 

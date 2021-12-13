@@ -9,18 +9,18 @@ import { HttpClient } from '@angular/common/http';
 export class UserRegistrationService {
 
   constructor(private http: HttpClient) { }
+  isAuthenticated = false;
 
   public loginUserForm(user: User): Observable<any>{
-    return this.http.post<any>('http://localhost:8080/users/login',user)
-  }
-
-  isUserLoggedIn() {
-    let user = sessionStorage.getItem('username')
-    console.log(!(user === null))
-    return !(user === null)
+    return this.http.post<any>('http://localhost:8080/users/login',user);
   }
 
   public saveUser(user:User): Observable<Object>{
     return this.http.post('http://localhost:8080/users/save',user);
   }
+
+
+
+
+
 }
