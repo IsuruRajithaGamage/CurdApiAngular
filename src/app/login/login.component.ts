@@ -13,20 +13,25 @@ export class LoginComponent implements OnInit {
 
   user = new User();
   message = '';
-
+  Authentication = false;
   constructor(private userservice:UserRegistrationService,private route: Router, service:EmployeeService) { }
 
   ngOnInit(): void {
   }
 
-  loginUser(){
+   loginUser(){
     this.userservice.loginUserForm(this.user).subscribe(
-      data => {console.log("godaaa");
-    this.route.navigate(['/employee-list'])},
+      data => {
+        console.log("logged");
+    this.route.navigate(['/employee-list'])
+
+  },
     error => {console.log("fuck");
   this.message="please check user name and passord!";
+
 }
     )
   }
+
 
 }
