@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserRegistrationService {
-  userz:User;
+  user = new User();
+  authantiaction = false;
 
   baseURL = "http://localhost:8080/users/login";
 
@@ -23,14 +24,27 @@ export class UserRegistrationService {
     return this.http.post('http://localhost:8080/users/save',user);
   }
 
-  public authenticate(): boolean{
-    this.http.get<User>(`${this.baseURL}`);
-    this.rou.navigate(['employee-list']);
-    this.isAuthenticated= true;
-    return true;
+  // authentication(){
+  // this.loginUserForm(this.user)
+  // if(this.user != null){
+  //   this.isAuthenticated = true;
+  // }
+
+
+  // }
+
+  isloginUser(){
+    let user = this.loginUserForm(this.user)
+    console.log(!(user === null))
+    return !(user===null)
   }
 
 
+   }
 
 
-}
+
+
+
+
+

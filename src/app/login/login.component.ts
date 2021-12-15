@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
    loginUser(){
     this.userservice.loginUserForm(this.user).subscribe(
       data => {
-        console.log("logged");
+        console.log(this.user.username);
+        this.userservice.isloginUser();
     this.route.navigate(['/employee-list'])
 
   },
@@ -31,6 +32,7 @@ export class LoginComponent implements OnInit {
 
 }
     )
+
   }
 
 
