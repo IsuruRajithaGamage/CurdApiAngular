@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { UserRegistrationService } from './../user-registration.service';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 import { User } from '../user';
 
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     this.userservice.loginUserForm(this.user).subscribe(
       data => {
         console.log(this.user.username);
-        this.userservice.isloginUser();
+        localStorage.setItem('token',this.user.username)
     this.route.navigate(['/employee-list'])
 
   },
@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
     )
 
   }
+
 
 
 }

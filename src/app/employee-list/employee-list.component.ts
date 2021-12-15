@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { EmployeeService } from './../employee.service';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Employee } from '../Employee';
 
 @Component({
@@ -36,5 +36,7 @@ export class EmployeeListComponent implements OnInit {
       this.getEmployee();
     })
   }
+
+
 
 }

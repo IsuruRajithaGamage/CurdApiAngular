@@ -1,3 +1,5 @@
+import { LogoutComponent } from './logout/logout.component';
+import { AuthGuard } from './auth.guard';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
@@ -9,10 +11,11 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'registration',component:RegistrationComponent},
-  {path:'create-employee',component:CreateEmployeeComponent},
-  {path:'employee-list',component:EmployeeListComponent},
-  {path:'',redirectTo:'employee-list',pathMatch:'full'},
-  {path:'update-employee/:id',component:UpdateEmployeeComponent}
+  {path:'create-employee',component:CreateEmployeeComponent,canActivate: [AuthGuard]},
+  {path:'employee-list',component:EmployeeListComponent,canActivate: [AuthGuard]},
+  //{path:'',redirectTo:'employee-list',pathMatch:'full'},
+  {path:'update-employee/:id',component:UpdateEmployeeComponent,canActivate: [AuthGuard]},
+  {path:'logout',component:LogoutComponent,canActivate: [AuthGuard]}
 ];
 
 @NgModule({

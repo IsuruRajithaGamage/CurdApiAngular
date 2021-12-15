@@ -33,10 +33,13 @@ export class UserRegistrationService {
 
   // }
 
-  isloginUser(){
-    let user = this.loginUserForm(this.user)
-    console.log(!(user === null))
-    return !(user===null)
+
+  loggedIn(){
+    return !!localStorage.getItem('token')
+  }
+
+  logOut(){
+  localStorage.removeItem('token')
   }
 
 
